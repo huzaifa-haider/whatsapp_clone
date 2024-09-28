@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profilePictureContainer"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/profile_picture_bg_tint"
+            app:cardCornerRadius="25dp">
+
+            <ImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/user_profile_picture_txt"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user"
+                app:tint="@color/profile_picture_tint_color" />
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/chatTitleAndLastTimeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/profilePictureContainer">
+
+            <TextView
+                android:id="@+id/chatTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/lastMessageTime"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/chat_title_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap"
+                tools:text="Chat Title" />
+
+            <TextView
+                android:id="@+id/lastMessageTime"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:text="Yesterday" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chatTitleAndLastTimeContainer"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_toEndOf="@id/profilePictureContainer">
+
+            <ImageView
+                android:id="@+id/messageStatusTick"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="4dp"
+                android:contentDescription="@string/message_status_tick_text"
+                android:rotationY="10"
+                android:src="@drawable/blue_tick"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/chatMessagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/messageStatusTick"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/chat_message_text_preview"
+                tools:text="This is the sample message which is used to check the overflow of content" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
